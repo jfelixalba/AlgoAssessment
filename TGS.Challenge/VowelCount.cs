@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace TGS.Challenge
 {
@@ -16,7 +17,19 @@ namespace TGS.Challenge
     {
         public int Count(string value)
         {
-            return -1;
+            HashSet<char> hash = new HashSet<char> { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+            int vowels = 0;
+
+            if (string.IsNullOrEmpty(value))
+                throw new ArgumentException("value is required");
+
+            for(int i = 0; i < value.Length; i++)
+            {
+                if (hash.Contains(value[i]))
+                    vowels++;
+            }
+
+            return vowels;
         }
     }
 }
