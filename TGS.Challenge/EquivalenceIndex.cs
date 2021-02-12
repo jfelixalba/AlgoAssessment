@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace TGS.Challenge
 {
   /*
@@ -19,7 +22,32 @@ namespace TGS.Challenge
     {
       public int Find(int[] numbers)
       {
-        return -99;
+            Dictionary<int, int> leftSum = new Dictionary<int, int>();
+            int equivalenceIndex = -1;
+            int sum = 0;
+
+            if (numbers is null || numbers.Length == 0)
+                throw new ArgumentException("Numbers are required");
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                sum += numbers[i];
+                leftSum.Add(sum, i);
+            }
+
+            sum = 0;
+            for(int i = numbers.Length -1; i > -1; i--)
+            {
+                sum += numbers[i];
+
+                if (leftSum.ContainsKey(sum) && leftSum[sum] == (i - 2))
+                {
+                    equivalenceIndex = i - 1;
+                    break;
+                }
+            }
+
+            return equivalenceIndex;
       }
     }
 }
