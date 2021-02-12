@@ -1,0 +1,12 @@
+.vscode
+/.vs/KarbonPay/v16
+/TGS.Challenge/bin/Debug/netcoreapp3.1
+/TGS.Challenge/obj
+*.suo
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
+/TGS.Challenge.Tests/obj
+/TGS.Challenge.Tests/bin/Debug/netcoreapp3.1
+/.vs/TGS.AlgoAssessment/v16/TestStore/0/000.testlog
+/.vs/TGS.AlgoAssessment/v16/TestStore/0/testlog.manifest
