@@ -26,7 +26,29 @@ namespace TGS.Challenge
     {
         public string Format(int value)
         {
-            return string.Empty;
+            if (value < 0)
+                throw new ArgumentOutOfRangeException();
+
+            if (value > int.MaxValue)
+                throw new ArgumentOutOfRangeException();
+
+            if (value < 1000)
+                return value.ToString();
+
+            string convertedNumber = string.Empty;
+            string number = value.ToString();
+            int remainder = number.Length % 3;
+
+            if (remainder > 0)
+                convertedNumber = $"{number.Substring(0, remainder)},";
+
+            while(remainder < number.Length)
+            {
+                convertedNumber += $"{number.Substring(remainder, 3)},";
+                remainder += 3;
+            }   
+
+            return convertedNumber.TrimEnd(',');
         }
     }
 }
